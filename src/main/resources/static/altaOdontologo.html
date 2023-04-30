@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Alta odontologos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/postOdontologo.js"></script>
+    <script type="text/javascript" src="/js/logout.js"></script>
+</head>
+<style>
+    .zoomIn {
+        -webkit-animation-name: zoomIn;
+        animation-name: zoomIn;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+
+    @-webkit-keyframes zoomIn {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale3d(0.3, 0.3, 0.3);
+            transform: scale3d(0.3, 0.3, 0.3);
+        }
+
+        50% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes zoomIn {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale3d(0.3, 0.3, 0.3);
+            transform: scale3d(0.3, 0.3, 0.3);
+        }
+
+        50% {
+            opacity: 1;
+        }
+    }
+
+    .fadeIn {
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+
+    @-webkit-keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+</style>
+<body class="fadeIn" style="font-family: 'Poppins';">
+<nav class="navbar navbar-expand-lg bg-primary">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="col d-flex justify-content-start align-items-center" style="height: 6vh;">
+        <img
+                style="width: 60px"
+                src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/42938/tooth-emoji-clipart-md.png"
+        />
+    </div>
+    <div class="col collapse navbar-collapse d-flex justify-content-end align-items-center" id="navbarSupportedContent" style="height: 6vh;">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="btn text-white" href="/">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Odontologos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item text-dark" href="/altaOdontologo.html">Crear odontologo</a>
+                    <a class="dropdown-item text-dark" href="/odontologoList.html">Listar odontologo</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownPaciente" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Pacientes
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item text-dark" href="/altaPaciente.html">Crear paciente</a>
+                    <a class="dropdown-item text-dark" href="/pacienteList.html">Listar paciente</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownTurnos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Turnos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item text-dark" href="/altaTurno.html">Crear turno</a>
+                    <a class="dropdown-item text-dark" href="/turnoList.html">Listar turno</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <button type="submit" class="btn btn-danger" id="logoutBtn">Logout</button>
+</nav>
+
+
+<div class="row d-flex justify-content-center">
+    <div class="col-sm-7 d-flex flex-column justify-content-center align-items-center"
+         style="height: 90vh;">
+
+        <h3 class="text-center">Agregar odontologo</h3><br><br>
+        <form id="add_new_odontologo" class="d-flex flex-column justify-content-center">
+            <div
+                    class="form-group">
+                <label class="control-label" for="apellido">Apellido</label>
+                <input type="text" class="form-control" id="apellido" placeholder="Ingrese el apellido"
+                       name="apellido" required style="width:25vw; border: transparent; border-bottom: 0.5px solid gray; border-radius: 0px;"></input>
+            </div><br>
+            <div
+                    class="form-group">
+                <label class="control-label" for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre" name="nombre"
+                       required style="width:25vw; border: transparent; border-bottom: 0.5px solid gray; border-radius: 0px;"></input>
+            </div><br>
+
+            <div
+                    class="form-group">
+                <label class="control-label" for="matricula">Matricula:</label>
+                <input type="text" class="form-control borde" id="matricula" placeholder="Ingrese la matricula"
+                       name="matricula" required style="width:25vw; border: transparent; border-bottom: 0.5px solid gray; border-radius: 0px;"></input>
+            </div><br>
+
+            <button type="submit" class="btn btn-primary" id="btn-add-new-odontologo">Guardar</button>
+        </form>
+        <div id="response" style="display:none; margin-top:10px">
+        </div>
+    </div>
+</div>
+</body>
+</html>

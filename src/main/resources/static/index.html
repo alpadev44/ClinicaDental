@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Proyecto Integrador</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/postOdontologo.js"></script>
+    <script type="text/javascript" src="/js/postPaciente.js"></script>
+    <script type="text/javascript" src="/js/logout.js"></script>
+</head>
+<style>
+    .zoomIn {
+        -webkit-animation-name: zoomIn;
+        animation-name: zoomIn;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+
+    @-webkit-keyframes zoomIn {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale3d(0.3, 0.3, 0.3);
+            transform: scale3d(0.3, 0.3, 0.3);
+        }
+
+        50% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes zoomIn {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale3d(0.3, 0.3, 0.3);
+            transform: scale3d(0.3, 0.3, 0.3);
+        }
+
+        50% {
+            opacity: 1;
+        }
+    }
+
+    .fadeIn {
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+
+    @-webkit-keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+</style>
+<body class="fadeIn" style="font-family: 'Poppins';">
+<nav class="navbar navbar-expand-lg bg-primary">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="col d-flex justify-content-start align-items-center" style="height: 6vh;">
+        <img
+                style="width: 60px"
+                src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/42938/tooth-emoji-clipart-md.png"
+        />
+    </div>
+    <div class="col collapse navbar-collapse d-flex justify-content-end align-items-center" id="navbarSupportedContent" style="height: 6vh;">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="btn text-white" href="/">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Odontologos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item text-dark" href="/altaOdontologo.html">Crear odontologo</a>
+                    <a class="dropdown-item text-dark" href="/odontologoList.html">Listar odontologo</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownPaciente" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Pacientes
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item text-dark" href="/altaPaciente.html">Crear paciente</a>
+                    <a class="dropdown-item text-dark" href="/pacienteList.html">Listar paciente</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownTurnos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Turnos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item text-dark" href="/altaTurno.html">Crear turno</a>
+                    <a class="dropdown-item text-dark" href="/turnoList.html">Listar turno</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <button type="submit" class="btn btn-danger" id="logoutBtn">Logout</button>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+            <h1 class="font-weight-light" style="text-align: center; ">
+                Consultorio Odontológico
+            </h1><br>
+            <div class="container font-weight-light">
+                <ul type="square">
+                    <li>Sonríe con confianza gracias a nuestros servicios de odontología. ¡Agenda tu cita ahora y
+                        descubre el poder de una sonrisa saludable</li>
+                    <br>
+                    <li>En nuestro consultorio odontológico, te ofrecemos los mejores tratamientos y cuidados para
+                        mantener tu salud bucal en óptimas condiciones. ¡Contáctanos y agenda tu consulta hoy mismo
+                    </li>
+                    <br>
+                    <li>Nuestro equipo de especialistas en odontología se dedica a proporcionar la mejor atención
+                        personalizada a cada uno de nuestros pacientes. ¡Ven y descubre cómo podemos mejorar tu
+                        salud dental</li>
+                </ul>
+            </div><br>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary" style="padding: 16px;" href="/turnos">Comenzar</button>
+            </div>
+        </div>
+        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+            <img style="width:600px;"
+                 src="https://img.freepik.com/vector-premium/nino-lindo-feliz-ir-al-cheque-dentista_97632-1367.jpg"
+                 alt="">
+        </div>
+    </div>
+</div>
+<hr>
+<br><br><br>
+<div class="row ">
+    <div class="col d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <img src="https://bfesteticadental.com/wp-content/uploads/2017/06/Odontologia-Caracas-Venezuela-BF-Estetica-Dental-1024x682.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text text-center font-weight-bold">
+                    Odontología Estetica
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <img src="https://oralmaax.com.co/es/img/master/clean.jpg" style="height: 23vh;" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text text-center font-weight-bold">
+                    Odontología General
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <img src="https://guerrerodental.com/wp-content/uploads/2022/03/caries-odontologia-scaled.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text text-center font-weight-bold">
+                    Ortodoncia
+                </p>
+            </div>
+        </div>
+    </div>
+</div><br><br><br><br>
+</body>
+</html>
